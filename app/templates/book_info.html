@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block content %}
+<h1>Information on book: {{ book.title }}</h1>
+
+    <h3>Author</h3>
+    <div>{{ book.author }}</div>
+    <h3>Genre</h3>
+    <div>{{ book.genre }}</div>
+    <h3>Summary</h3>
+    <div>{{ book.summary }}</div>
+    <h3>Availability</h3>
+    <div>
+    {% if current_user.is_authenticated %}
+        {% if book.loans %}
+            {% if book.loans.user_id==current_user.id %}
+                Currently on loan to the logged in user
+            {% else %}
+                On loan to another user
+            {% endif %}
+        {% else %}
+            Book is available
+        {% endif %}
+    {% else %}
+        Log in to see availability
+    {% endif %}
+    </div>
+
+
+{% endblock %}

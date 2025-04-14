@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block content %}
+<h1>List of books</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Summary</th>
+            <th>Availability</th>
+            {% if current_user.is_authenticated %}
+            	<th>Borrow</th>
+            {% endif %}
+        </tr>
+    </thead>
+    {% for book in list_books %}
+        <tr>
+            <td>
+                <a href="/book_details/{{ book.id }}">
+                    {{ book.title }}
+                </a>
+            </td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.genre }}</td>
+            <td>{{ book.summary }}</td>
+
+            <td>
+            {% if current_user.is_authenticated %}
+                {% if book.loans %}
+                    {% if book.loans.user_id==current_user.id %}
+                        Currently on loan to the logged in user
+                    {% else %}
+                        On loan to another user
+                    {% endif %}
+                {% else %}
+                    Book is available
+                {% endif %}
+            {% else %}
+                Log in to see availability
+            {% endif %}
+            </td>
+
+            {% if current_user.is_authenticated and not book.loans%}
+            <td>
+                <form action="{{ url_for('borrow_book') }}" method="post">
+                    {{ form.csrf_token() }}
+                    {{ form.choice(value=book.id) }}
+                    <button class="btn" type="submit">
+                        Click to borrow
+                    </button>
+                </form>
+            </td>
+            {% endif %}
+
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

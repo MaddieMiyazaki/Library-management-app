@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block content %}
+<h1>Private Account Page</h1>
+
+<p>Hello {{ current_user.username }}</p>
+
+<p>This page is only available to you as the currently logged in user</p>
+
+<p>The email address we have recorded for you is: {{ current_user.email }}</p>
+
+    <h3>List of current loans</h3>
+    <table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Date loaned</th>
+        <th>Return this book</th>
+    </tr>
+    {% for loan in list_loans %}
+    	<tr>
+            <td>{{ loan.book.title }}</td>
+            <td>{{ loan.date_loaned }}</td>
+            <td>
+                <form action="{{ url_for('return_book') }}" method="post">
+                    {{ form.csrf_token() }}
+                    {{ form.choice1(value=loan.book_id) }}
+                    {{ form.choice2(value=loan.user_id) }}
+                    <button class="btn" type="submit">
+                        Click to return
+                    </button>
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+
+    </table>
+
+{% endblock %}
