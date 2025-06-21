@@ -3,7 +3,7 @@ This project is an interactive web-based app to manage a library system, impleme
 
 ## How to run locally 
 In the terminal:
-1. Clone repository: `git clone https://github.com/MaddieMiyazaki/Distance-Vector-Algorithm.git`
+1. Clone repository: `git clone https://github.com/MaddieMiyazaki/Library-management-app.git`
 2. Change directoy:  `cd Distance-Vector-Algorithm`
 3. Install dependencies: `pip install -r requirements.txt`
 4. Start the app: `python dv.py`
