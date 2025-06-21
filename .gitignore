@@ -1,0 +1,8 @@
+# any .idea files and embedded .idea files
+.idea/
+**/.idea/
+
+# any __pycache__ files and embedded pycache files
+__pycache__/
+**/__pycache__/
+*.pyc
