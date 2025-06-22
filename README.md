@@ -1,12 +1,14 @@
-## Library management app
+# Library management app
 This project is an interactive web-based app to manage a library system, implemented using the Flask framework. 
+
+## Features
 
 ## How to run locally 
 In the terminal:
 1. Clone repository: `git clone https://github.com/MaddieMiyazaki/Library-management-app.git`
-2. Change directoy:  `cd Distance-Vector-Algorithm`
+2. Change directoy:  `cd `
 3. Install dependencies: `pip install -r requirements.txt`
-4. Start the app: `python dv.py`
+4. Start the app: `flask run`
 
 Then open `http://localhost:5000` in your browser
 
@@ -17,5 +19,3 @@ Then open `http://localhost:5000` in your browser
 - **Database management**: SQLite
 
 
-## Features
-- 
