@@ -25,7 +25,7 @@ This project is an interactive library system, implemented using the Flask frame
 ## How to run 
 In the terminal:
 1. Clone repository: `git clone https://github.com/MaddieMiyazaki/Library-management-app.git`
-2. Change directoy:  `cd Library-management-app`
+2. Change directory:  `cd Library-management-app`
 3. Install dependencies: `pip install -r requirements.txt`
 4. Application context: `flask shell`
 5. Populate database: `reset_db()`
