@@ -29,7 +29,8 @@ In the terminal:
 3. Install dependencies: `pip install -r requirements.txt`
 4. Application context: `flask shell`
 5. Populate database: `reset_db()`
-6. Start the app: `flask run`
+6. Exit context: `exit()`
+7. Start the app: `flask run`
 
 Then open `http://localhost:5000` in your browser
 
